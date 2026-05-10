@@ -271,7 +271,7 @@ You can see a reduce, two big fusions, and an all-reduce. The first big fusion i
 
 ```%fusion.1 = bf16[4096]{0:T(1024)(128)(2,1)} fusion(bf16[4096,8192]{1,0:T(8,128)(2,1)} %param.1, bf16[8192]{0:T(1024)(128)(2,1)} %reduce.6), kind=kLoop, calls=%fused_computation.1```
 
-which tells us the per-shard shape is `bf16[8192] * bf16[4096, 8192] -> bf16[4096]` (over the 8192 dimension). By observing the final AllReduce with `replica_groups=\{\{0,16,32,48,64,80,96,112\}, ...\}`, we can tell we're doing 8-way model parallelism, so the true shapes are `bf16[8, 8192] * bf16[32768, 8192] -> bf16[8, 32768]`.
+which tells us the per-shard shape is `bf16[8192] * bf16[4096, 8192] -> bf16[4096]` (over the 8192 dimension). By observing the final AllReduce with {% raw %}`replica_groups={{0,16,32,48,64,80,96,112}, ...}`{% endraw %}, we can tell we're doing 8-way model parallelism, so the true shapes are `bf16[8, 8192] * bf16[32768, 8192] -> bf16[8, 32768]`.
 
 {% enddetails %}
 
