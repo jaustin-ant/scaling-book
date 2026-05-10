@@ -248,7 +248,7 @@ I've clicked on the Q projection op, which uses a matrix $$W_Q$$ of shape [d<sub
 
 ### Memory Profile
 
-The Memory Profile makes it easy to see the program memory as a function of time. This is helpful for debugging OOMs. You can see here about 7.5GB allocated to model parameters and about 10GB free. So we can fit a lot more into memory.
+The Memory Profile makes it easy to see the program memory as a function of time. This is helpful for debugging OOMs. You can see here about 7.5GB allocated to model parameters and about 8.5GB free. So we can fit a lot more into memory.
 
 {% include figure.liquid path="assets/img/memory-viewer.png" class="img-fluid" %}
 
